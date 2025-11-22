@@ -1,0 +1,62 @@
+Running job gn38f
+
+GPU driver ready!
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.1.1
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+[2025-11-22 05:55:32,991] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+df: /root/.triton/autotune: No such file or directory
+/opt/conda/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/opt/conda/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+INFO:/opt/openfold3/openfold3/core/utils/script_utils.py:Setting RLIMIT_STACK to -1 (was 8388608)
+Using bfloat16 Automatic Mixed Precision (AMP)
+💡 Tip: For seamless cloud uploads and versioning, try installing [litmodels](https://pypi.org/project/litmodels/) to enable LitModelCheckpoint, which syncs automatically with the Lightning model registry.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/opt/openfold3/openfold3/core/data/framework/data_module.py:286: UserWarning: Dataset weights do not sum to 1. Normalizing weights.
+  cls.run_checks(multi_dataset_config)
+Restoring states from the checkpoint path at /app/of3_ft3_v1.pt
+/opt/conda/lib/python3.10/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:445: The dirpath has changed from '/projects/u5i/openfold3/train_output/openfold3/pohpyeb4/checkpoints' to '/app/out/checkpoints', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /app/of3_ft3_v1.pt
+/opt/conda/lib/python3.10/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 10 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+
+Predicting: |          | 0/? [00:00<?, ?it/s]/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:377: You have overridden `transfer_batch_to_device` in `LightningModule` but have passed in a `LightningDataModule`. It will use the implementation from `LightningModule` instance.
+
+Predicting: |          | 0/? [00:00<?, ?it/s]
+Predicting DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Seed set to 42
+Using /root/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Creating extension directory /root/.cache/torch_extensions/py310_cu121/evoformer_attn...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /root/.cache/torch_extensions/py310_cu121/evoformer_attn/build.ninja...
+/opt/conda/lib/python3.10/site-packages/torch/utils/cpp_extension.py:1965: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module evoformer_attn...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+[1/4] c++ -MMD -MF attention.o.d -DTORCH_EXTENSION_NAME=evoformer_attn -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1011\" -I/opt/cutlass/include -I/opt/cutlass/tools/util/include -isystem /opt/conda/lib/python3.10/site-packages/torch/include -isystem /opt/conda/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -isystem /opt/conda/lib/python3.10/site-packages/torch/include/TH -isystem /opt/conda/lib/python3.10/site-packages/torch/include/THC -isystem /usr/local/cuda/include -isystem /opt/conda/include/python3.10 -D_GLIBCXX_USE_CXX11_ABI=0 -fPIC -std=c++17 -O3 -std=c++17 -g -Wno-reorder -DBF16_AVAILABLE -c /opt/conda/lib/python3.10/site-packages/deepspeed/ops/csrc/deepspeed4science/evoformer_attn/attention.cpp -o attention.o 
+[2/4] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output attention_cu.cuda.o.d -DTORCH_EXTENSION_NAME=evoformer_attn -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1011\" -I/opt/cutlass/include -I/opt/cutlass/tools/util/include -isystem /opt/conda/lib/python3.10/site-packages/torch/include -isystem /opt/conda/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -isystem /opt/conda/lib/python3.10/site-packages/torch/include/TH -isystem /opt/conda/lib/python3.10/site-packages/torch/include/THC -isystem /usr/local/cuda/include -isystem /opt/conda/include/python3.10 -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 --compiler-options '-fPIC' -O3 --use_fast_math -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ --threads=4 -gencode=arch=compute_89,code=sm_89 -gencode=arch=compute_89,code=compute_89 -DGPU_ARCH=89 -DBF16_AVAILABLE -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -c /opt/conda/lib/python3.10/site-packages/deepspeed/ops/csrc/deepspeed4science/evoformer_attn/attention_cu.cu -o attention_cu.cuda.o 
+[3/4] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output attention_back.cuda.o.d -DTORCH_EXTENSION_NAME=evoformer_attn -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1011\" -I/opt/cutlass/include -I/opt/cutlass/tools/util/include -isystem /opt/conda/lib/python3.10/site-packages/torch/include -isystem /opt/conda/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -isystem /opt/conda/lib/python3.10/site-packages/torch/include/TH -isystem /opt/conda/lib/python3.10/site-packages/torch/include/THC -isystem /usr/local/cuda/include -isystem /opt/conda/include/python3.10 -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=compute_89 -gencode=arch=compute_89,code=sm_89 --compiler-options '-fPIC' -O3 --use_fast_math -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ --threads=4 -gencode=arch=compute_89,code=sm_89 -gencode=arch=compute_89,code=compute_89 -DGPU_ARCH=89 -DBF16_AVAILABLE -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -c /opt/conda/lib/python3.10/site-packages/deepspeed/ops/csrc/deepspeed4science/evoformer_attn/attention_back.cu -o attention_back.cuda.o 
+[4/4] c++ attention.o attention_back.cuda.o attention_cu.cuda.o -shared -lcurand -L/opt/conda/lib/python3.10/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/usr/local/cuda/lib64 -lcudart -o evoformer_attn.so
+Loading extension module evoformer_attn...
+Time to load evoformer_attn op: 276.3974959850311 seconds
+
+Predicting DataLoader 0: 100%|██████████| 1/1 [04:53<00:00,  0.00it/s]Inference runtime: 296.3403778076172 seconds
+
+Predicting DataLoader 0: 100%|██████████| 1/1 [04:53<00:00,  0.00it/s]

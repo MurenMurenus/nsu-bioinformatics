@@ -1,0 +1,17 @@
+{
+    "molecules": [
+        {
+            "type": "protein",
+            "sequence": "MDADVISFEASRGDLVVLDAIHDARFETEAGPGVYDIHSPRIPSEKEIEDRIYEILDKIDVKKVWINPDCGLKTRGNDETWPSLEHLVAAAKAVRARLDK",
+            "cifFiles": [],
+            "smiles": "",
+            "tabIndex": 0,
+            "chainId": "A"
+        }
+    ],
+    "outputFormat": "pdb",
+    "sequence": "MDADVISFEASRGDLVVLDAIHDARFETEAGPGVYDIHSPRIPSEKEIEDRIYEILDKIDVKKVWINPDCGLKTRGNDETWPSLEHLVAAAKAVRARLDK",
+    "msa": "done",
+    "monomer_msa": true,
+    "type": "openfold"
+}
